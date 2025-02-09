@@ -34,11 +34,14 @@ The Pneumon Telemedicine Dashboard is crafted to improve healthcare access, focu
 
 ## Installation
 
-<!-- ```bash
-git clone https://github.com/Makuo67/iCatch.git
-cd iCatch/backend/app
+```bash
+git clone https://github.com/JABU-2022/Pneumon.git
+cd Pneumon
+source iCatch/bin/activate
+pip install -r requirements.txt
+cd Pneumon/backend/app
 uvicorn app:main --reload
-``` -->
+```
 
 ## Usage
 
