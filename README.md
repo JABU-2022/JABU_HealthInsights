@@ -1,6 +1,6 @@
 # Pneumon Telemedicine Dashboard
 
-![Dashboard](PneumonDashboard.png)
+![Dashboard](PneumonDashboardJ.png)
 
 ## Introduction
 
