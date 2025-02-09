@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/myhospital.css') }}"
+    />
+</head>
+<body>
+    <div class="dashboard-container">
+
+        <!-- Left Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="{{ url_for('static', path='images/pneumon.png') }}" alt="Logo">
+            </div>
+    
+            <nav class="top-nav">
+                <ul>
+                  <li class="dashboard" id="dashboard">
+                    <a id="dashboard_label" href="{{ url_for('render_dashboard') }}"
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li class="consultadoctor" id="consultadoctor">
+                    <a
+                      id="consultadoctor_label"
+                      href="{{ url_for('render_consultdoctor') }}"
+                      >Consult a Doctor</a
+                    >
+                  </li>
+                  <li class="appointments" id="appointments">
+                    <a
+                      id="appointments_label"
+                      href="{{ url_for('render_appointment') }}"
+                      >Appointments</a
+                    >
+                  </li>
+                  <li class="myhospital" id="myhospitals">
+                    <a
+                      id="myhospitals_label"
+                      href="{{ url_for('render_myhospitals') }}"
+                      >My Hospitals</a
+                    >
+                  </li>
+                  <li class="myhospital" id="myhospitals">
+                    <a
+                      id="myhospitals_label"
+                      href="{{ url_for('render_upload_form') }}"
+                      >AI Diagnosis</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            <nav class="bottom-nav">
+                <ul>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Refer Family & Friends</a></li>
+                </ul>
+            </nav>
+        </div>
+    
+    
+    
+        <!-- Right Dashboard Information -->
+    <div class="main-content">
+
+        <div class="top-bar">
+            <div>
+                <input type="search" id="searchInput" placeholder="Search here..." aria-label="Search"> 
+            </div>
+
+            <div class="profile">
+                <img src="{{ url_for('static', path='images/profile.jpg') }}" alt="Profile Picture">
+            </div>
+            <div>
+                <img src="{{ url_for('static', path='images/notification-icon.png') }}" alt="Notifications" class="notification-icon">
+            </div>    
+        </div>
+
+
+        <div class="header-container">
+            <div class="text-container">
+                <h2> My Hospital </h2>
+            </div>
+            <div class="button-container">
+                <a href="https://www.google.com/search?q=find+hospitals+near+me&oq=find+hospitals+near+me&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIICAEQABgWGB4yCAgCEAAYFhgeMggIAxAAGBYYHjIICAQQABgWGB4yCAgFEAAYFhgeMg0IBhAAGIYDGIAEGIoFMg0IBxAAGIYDGIAEGIoFMgoICBAAGIAEGKIEMgoICRAAGIAEGKIE0gEIMjI3M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8">
+                    <button>🔍 Find hospitals near me </button>
+                </a>
+                
+            </div>
+        </div>
+    
+        <div class="tabs">
+            <div class="tab active">
+                <span class="icon">+</span>
+                <span class="text">All Hospitals</span>
+                <span class="count">0</span>
+            </div>
+            <div class="tab">
+                <span class="icon">📅</span>
+                <span class="text">Recently Visited</span>
+                <span class="count">0</span>
+            </div>
+            <div class="tab">
+                <span class="icon">❌</span>
+                <span class="text">Favourities</span>
+                <span class="count">0</span>
+            </div>
+        </div>
+
+        <div class="hospital-list">
+            <div class="list-header">
+                <span>Name</span>
+                <span>Address</span>
+                <span>Phone no</span>
+                <span>Ratings</span>
+            </div>
+            <!-- Example row -->
+            <div class="list-row">
+                <span>Afrimed Specialist Hospital</span>
+                <span>17, Bamidele Street, Osapa London, Lekki, Lagos</span>
+                <span>0814 609 2019</span>
+                <span class="ratings">
+                    <!-- Icons for stars -->
+                    ★★★★★
+                </span>
+            </div>
+
+            <!-- Repeat .list-row for each hospital -->
+
+            <div class="list-row">
+                <span>Afrimed Specialist Hospital</span>
+                <span>17, Bamidele Street, Osapa London, Lekki, Lagos</span>
+                <span>0814 609 2019</span>
+                <span class="ratings">
+                    <!-- Icons for stars -->
+                    ★★★★★
+                </span>
+            </div>
+
+             <!-- Repeat .list-row for each hospital -->
+
+             <div class="list-row">
+                <span>Afrimed Specialist Hospital</span>
+                <span>17, Bamidele Street, Osapa London, Lekki, Lagos</span>
+                <span>0814 609 2019</span>
+                <span class="ratings">
+                    <!-- Icons for stars -->
+                    ★★★★★
+                </span>
+            </div>
+            
+            <!-- Repeat .list-row for each hospital -->
+
+            <div class="list-row">
+                <span>Afrimed Specialist Hospital</span>
+                <span>17, Bamidele Street, Osapa London, Lekki, Lagos</span>
+                <span>0814 609 2019</span>
+                <span class="ratings">
+                    <!-- Icons for stars -->
+                    ★★★★★
+                </span>
+            </div>
+
+            <!-- Repeat .list-row for each hospital -->
+
+            <div class="list-row">
+                <span>Afrimed Specialist Hospital</span>
+                <span>17, Bamidele Street, Osapa London, Lekki, Lagos</span>
+                <span>0814 609 2019</span>
+                <span class="ratings">
+                    <!-- Icons for stars -->
+                    ★★★★★
+                </span>
+            </div>
+
+            <!-- Repeat .list-row for each hospital -->
+
+            <div class="list-row">
+                <span>Afrimed Specialist Hospital</span>
+                <span>17, Bamidele Street, Osapa London, Lekki, Lagos</span>
+                <span>0814 609 2019</span>
+                <span class="ratings">
+                    <!-- Icons for stars -->
+                    ★★★★★
+                </span>
+            </div>
+
+
+        </div>
+        
+
+    </div>
+
+   
+</body>
+</html>
