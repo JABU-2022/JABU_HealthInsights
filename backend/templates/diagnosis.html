@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/frontend/css/diagnosis.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
   <body>
     <div class="dashboard-container">
@@ -17,31 +21,41 @@
         <nav class="top-nav">
           <ul>
             <li class="dashboard" id="dashboard">
-              <a id="dashboard_label" href="/frontend/html/dashboard.html"
-                >Dashboard</a
-              >
+              <a id="dashboard_label" href="{{ url_for('render_dashboard') }}">
+                <i class="fas fa-home"></i> Home
+              </a>
             </li>
             <li class="consultadoctor" id="consultadoctor">
               <a
                 id="consultadoctor_label"
-                href="/frontend/html/consultdoctor.html"
-                >Consult a Doctor</a
+                href="{{ url_for('render_consultdoctor') }}"
               >
+                <i class="fas fa-user-md"></i> Consult
+              </a>
             </li>
             <li class="appointments" id="appointments">
-              <a id="appointments_label" href="/frontend/html/appointment.html"
-                >Appointments</a
+              <a
+                id="appointments_label"
+                href="{{ url_for('render_appointment') }}"
               >
+                <i class="fas fa-video"></i> Live Webinars
+              </a>
             </li>
             <li class="myhospital" id="myhospitals">
-              <a id="myhospitals_label" href="/frontend/html/myhospitals.html"
-                >My Hospitals</a
+              <a
+                id="myhospitals_label"
+                href="{{ url_for('render_myhospitals') }}"
               >
+                <i class="fas fa-book-open"></i> Online Courses
+              </a>
             </li>
             <li class="myhospital" id="myhospitals">
-              <a id="myhospitals_label" href="/frontend/html/diagnosis.html"
-                >AI Diagnosis</a
+              <a
+                id="myhospitals_label"
+                href="{{ url_for('render_upload_form') }}"
               >
+                <i class="fas fa-brain"></i> AI
+              </a>
             </li>
           </ul>
         </nav>
@@ -67,7 +81,7 @@
           </div>
 
           <div class="profile">
-            <img src="/images/profile.jpg" alt="Profile Picture" />
+            <img src="/images/profile2.jpg" alt="Profile Picture" />
           </div>
           <div>
             <img

@@ -8,7 +8,11 @@
       rel="stylesheet"
       href="{{ url_for('static', path='css/upload_form.css') }}"
     />
-    <title>Fundus Disease Diagnosis</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>Chest X-Ray Diagnosis</title>
   </head>
   <body>
     <div class="container">
@@ -24,39 +28,31 @@
         <nav class="top-nav">
           <ul>
             <li class="dashboard" id="dashboard">
-              <a id="dashboard_label" href="{{ url_for('render_dashboard') }}"
-                >Dashboard</a
-              >
+                <a id="dashboard_label" href="{{ url_for('render_dashboard') }}">
+                    <i class="fas fa-home"></i> Home
+                </a>
             </li>
             <li class="consultadoctor" id="consultadoctor">
-              <a
-                id="consultadoctor_label"
-                href="{{ url_for('render_consultdoctor') }}"
-                >Consult a Doctor</a
-              >
+                <a id="consultadoctor_label" href="{{ url_for('render_consultdoctor') }}">
+                    <i class="fas fa-user-md"></i> Consult
+                </a>
             </li>
             <li class="appointments" id="appointments">
-              <a
-                id="appointments_label"
-                href="{{ url_for('render_appointment') }}"
-                >Appointments</a
-              >
+                <a id="appointments_label" href="{{ url_for('render_appointment') }}">
+                    <i class="fas fa-video"></i> Live Webinars
+                </a>
             </li>
             <li class="myhospital" id="myhospitals">
-              <a
-                id="myhospitals_label"
-                href="{{ url_for('render_myhospitals') }}"
-                >My Hospitals</a
-              >
+                <a id="myhospitals_label" href="{{ url_for('render_myhospitals') }}">
+                    <i class="fas fa-book-open"></i> Online Courses
+                </a>
             </li>
             <li class="myhospital" id="myhospitals">
-              <a
-                id="myhospitals_label"
-                href="{{ url_for('render_upload_form') }}"
-                >AI Diagnosis</a
-              >
+                <a id="myhospitals_label" href="{{ url_for('render_upload_form') }}">
+                    <i class="fas fa-brain"></i> AI
+                </a>
             </li>
-          </ul>
+        </ul>
         </nav>
         <nav class="bottom-nav">
           <ul>
@@ -81,7 +77,7 @@
 
           <div class="profile">
             <img
-              src="{{ url_for('static', path='images/profile.jpg') }}"
+              src="{{ url_for('static', path='images/profile2.jpg') }}"
               alt="Profile Picture"
             />
           </div>
@@ -94,7 +90,7 @@
           </div>
         </div>
       <div class="upload-section">
-        <h1>Fundus Disease Diagnosis</h1>
+        <h1> Chest X-Ray Diagnosis</h1>
         <form action="/predict" method="post" enctype="multipart/form-data">
           <input
             type="file"
@@ -104,7 +100,7 @@
             required
           />
           <a href="/diagnosis"></a>
-          <button type="submit">Upload Image</button>
+          <button type="submit">Upload X-ray Image</button>
         </form>
         <p id="uploadStatus"></p> <!-- Placeholder for uploading status -->
       </div>

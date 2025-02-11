@@ -39,14 +39,14 @@ input[type="email"], input[type="password"] {
     padding: 12px 120px 12px 120px;
     border: none;
     border-radius: 8px;
-    background-color: #EB5017;
+    background-color: #2c99f2;
     color: white;
     cursor: pointer;
     margin-top: 24px;
 }
 
 .login-button:hover, .google-login:hover {
-    background-color: #C03F14; 
+    background-color: #89c5f6; 
 }
 
 .divider {
@@ -60,11 +60,19 @@ input[type="email"], input[type="password"] {
 }
 
 a {
-    color: #EB5017; 
+    color: #2c99f2; 
 }
-
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .logo img {
-    width: 240px;
+    width: 200px;
     height: 100px;
     margin-bottom: 30px;
+    border-radius: 15px;
+}
+.logo h3 {
+    margin-left: 20px;
 }

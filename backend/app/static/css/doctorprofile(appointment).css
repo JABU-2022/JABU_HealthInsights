@@ -27,22 +27,28 @@ body, html {
 }
 
 /* Styling for the navigation links */
+/* Styling for the navigation links */
 .top-nav ul {
     list-style: none;
     padding-left: 0;
-}
-
-.top-nav a {
+  }
+  
+  .top-nav ul li a i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 18px;
+    color: #007bff; /* Change color if needed */
+  }
+  .top-nav a {
     display: block;
     color: black; /* Text color */
     text-decoration: none; /* No underline */
     padding: 10px 20px;
-}
-
-.top-nav a:hover {
+  }
+  
+  /* Hover effect */
+  .top-nav a:hover {
     background-color: #b9b9b9; 
-}
-
+  }
 /* Active link styling */
 .appointments {
     background-color: #FFECE5; /* Change to desired color for active state */
@@ -125,11 +131,11 @@ input[type="search"] {
 
 .header-title {
     font-size: 16px;
-    color: #ff4500; 
+    color: #2c99f2; 
 }
 
 .plus-icon {
-    color: #ff4500;
+    color: #2c99f2;
     margin-right: 5px;
 }
 
@@ -195,7 +201,7 @@ input[type="search"] {
 }
 
 .request-button {
-    background-color: #F96731;
+    background-color: #2c99f2;
     color: #fff;
     padding: 16px 24px;
     border: none;
@@ -206,7 +212,7 @@ input[type="search"] {
 }
 
 .request-button:hover {
-    background-color: #d35400;
+    background-color: #2c99f2;
 }
 
 .profile-body {

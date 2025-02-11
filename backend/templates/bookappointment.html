@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="{{ url_for('static', path='css/bookappointment.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
 
   <body>
@@ -24,37 +28,41 @@
         <nav class="top-nav">
           <ul>
             <li class="dashboard" id="dashboard">
-              <a id="dashboard_label" href="{{ url_for('render_dashboard') }}"
-                >Dashboard</a
-              >
+              <a id="dashboard_label" href="{{ url_for('render_dashboard') }}">
+                <i class="fas fa-home"></i> Home
+              </a>
             </li>
             <li class="consultadoctor" id="consultadoctor">
               <a
                 id="consultadoctor_label"
                 href="{{ url_for('render_consultdoctor') }}"
-                >Consult a Doctor</a
               >
+                <i class="fas fa-user-md"></i> Consult
+              </a>
             </li>
             <li class="appointments" id="appointments">
               <a
                 id="appointments_label"
                 href="{{ url_for('render_appointment') }}"
-                >Appointments</a
               >
+                <i class="fas fa-video"></i> Live Webinars
+              </a>
             </li>
             <li class="myhospital" id="myhospitals">
               <a
                 id="myhospitals_label"
                 href="{{ url_for('render_myhospitals') }}"
-                >My Hospitals</a
               >
+                <i class="fas fa-book-open"></i> Online Courses
+              </a>
             </li>
             <li class="myhospital" id="myhospitals">
               <a
                 id="myhospitals_label"
                 href="{{ url_for('render_upload_form') }}"
-                >AI Diagnosis</a
               >
+                <i class="fas fa-brain"></i> AI
+              </a>
             </li>
           </ul>
         </nav>
