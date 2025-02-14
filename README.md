@@ -60,7 +60,7 @@ uvicorn app:main --reload
 
 ## Kaggle Notebook
 
-[Kaggle](https://www.kaggle.com/code/okekemakuochukwu/pneumon)
+[Kaggle](https://(https://www.kaggle.com/datasets/paultimothymoone/chest-xray-pneumonia)
 
 ## Github Repo -->
 
@@ -75,7 +75,11 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ## Contact
 
 - **Email**: j.butera@alustudent.com
-- **Phone**: + 250790801063
+- **Phone**: + 250780621372
+
+## Initial software product 
+
+[Initail software product](https://youtu.be/cSaqUDxAyyY)
 
 ---
 >>>>>>> 29ecdb4 (Initial commit)
