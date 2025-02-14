@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+</head>
+<body>
+
+<div class="dashboard-container">
+<!-- Left Sidebar Navigation -->
+<div class="sidebar">
+    <div class="logo">
+        <div><img src="{{ url_for('static', path='images/pneumon.png') }}" alt="Logo"></div>
+        <div><h3>Pneumon</h3></div>
+    </div>
+
+    <nav class="top-nav">
+        <ul>
+            <li class="dashboard" id="dashboard">
+                <a id="dashboard_label" href="{{ url_for('render_dashboard') }}">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </li>
+            <li class="consultadoctor" id="consultadoctor">
+                <a id="consultadoctor_label" href="{{ url_for('render_consultdoctor') }}">
+                    <i class="fas fa-user-md"></i> Consult
+                </a>
+            </li>
+            <li class="appointments" id="appointments">
+                <a id="appointments_label" href="{{ url_for('render_appointment') }}">
+                    <i class="fas fa-video"></i> Live Webinars
+                </a>
+            </li>
+            <li class="myhospital" id="myhospitals">
+                <a id="myhospitals_label" href="{{ url_for('render_myhospitals') }}">
+                    <i class="fas fa-book-open"></i> Online Courses
+                </a>
+            </li>
+            <li class="myhospital" id="myhospitals">
+                <a id="myhospitals_label" href="{{ url_for('render_upload_form') }}">
+                    <i class="fas fa-brain"></i> AI
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav class="bottom-nav">
+        <ul>
+            <li><a>Settings</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Refer Family & Friends</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+
+<!-- Right Dashboard Information -->
+<div class="main-content">
+        <div class="top-bar">
+            <div>
+                <input type="search" id="searchInput" placeholder="Search here..." aria-label="Search"> 
+            </div>
+
+            <div class="profile">
+                <img src="{{ url_for('static', path='images/profile2.jpg') }}" alt="Profile Picture">
+            </div>
+            <div>
+                <img src="{{ url_for('static', path='images/notification-icon.png') }}" alt="Notifications" class="notification-icon">
+            </div>
+            
+        </div>
+
+        <div class="welcome-message-and-date-wigdet">
+
+            <div class="welcome-message">
+            <h1> Welcome </h1>
+            <p>It's a sunny day today, we hope you're taking good care of your health 😊</p>
+            </div>
+
+            <div class="date-widget">
+                <div>
+                    Today's Date:
+                    <div> <span id="currentDate"></span> </div> 
+                </div> 
+            </div>
+
+        </div>
+        <div>
+
+<div class="metrics-container-and-profile-card-and-consultation-card">            
+  <div class="metrics-container-and-profile-card">
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', path='videos/chestimage.mp4') }}" type="video/mp4">
+        </video>
+    </div>         
+    <div class="metrics-container">
+            <div class="metric-card">
+                <h4>Oxygen Saturation</h4>
+                <p class="value">92%</p>
+                <div class="icon-container"><img src="{{ url_for('static', path='images/Blood.png') }}" alt="Blood Pressure"></div>
+                <div class="status healthy"><span class="percentage">5%</span> Healthy</div>
+            </div>
+    
+            <div class="metric-card">
+                <h4>Respiration Rate</h4>
+                <p class="value">18 bpm</p>
+                <div class="icon-container"><img src="{{ url_for('static', path='images/Cholesterol.png') }}" alt="Cholesterol"></div>
+                <div class="status healthy"><span class="percentage">5%</span> Healthy</div>
+            </div>
+    
+            <div class="metric-card">
+                <h4>Symptom Severity </h4>
+                <p class="value">3.5/10</p>
+                <div class="icon-container"><img src="{{ url_for('static', path='images/Glucose.png') }}" alt="Glucose"></div>
+                <div class="status healthy"><span class="percentage">5%</span> Healthy</div>
+            </div>
+    </div>
+       
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="{{ url_for('static', path='images/profile2.jpg') }}" alt="Ademola Emmanuel" class="profile-image">
+                <div class="profile-info">
+                    <h1> </h1>
+                    <p>HMO ID: RET/15118/A</p>
+                </div>
+            </div>
+            <div class="profile-details">
+                <div class="detail"><strong>Age</strong><span>26 y/o</span></div>
+                <div class="detail"><strong>Date of Birth</strong><span>15-05-1994</span></div>
+                <div class="detail"><strong>Height</strong><span>6'7 In</span></div>
+                <div class="detail"><strong>Weight</strong><span>80 kg</span></div>
+                <div class="detail"><strong>HMO Plan</strong><span>Red Beryl</span></div>
+                <div class="detail"><strong>Expires on</strong><span>24-07-2024</span></div>
+                <div class="detail"><strong>Status</strong><span class="status active">Active</span></div>
+            </div>
+
+        </div>
+  </div>  
+       
+        <div class="consultation-card">
+            <h2>Upcoming  Webinars</h2>
+            <div class="appointment-details">
+                <p class="date">Friday, 7 March</p>
+                <div class="time-location">
+                    <p><span class="icon time-icon"></span>11:30 - 12:00 (30 min)</p>
+                    <p><span class="icon location-icon"></span>La Croix du Sud Hospital, KG 201 St, Kigali</p>
+                </div>
+                <div class="doctor-details">
+                    <img src="{{ url_for('static', path='images/Avatar.png') }}" alt="Dr. Alison Ogaga" class="doctor-image">
+                    <div>
+                        <p class="doctor-name">Dr. Ndinelao Iitumba</p>
+                        <p class="specialization">General Practitioner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="reschedule">Reschedule</button>
+                <button class="confirm">Confirm Attendance</button>
+            </div>
+        </div>
+</div>
+<div class="quick-actions-and-consultations-container">
+
+ <div class="quick-actions">
+    <h2>Quick Actions</h2>
+    <ul>
+        <li>
+            <span class="icon"><img src="{{ url_for('static', path='images/Appointment Icon.png') }}" alt="Book"></span>
+            <div class="text">
+                <p>Register for a webinar</p>
+                <small>Find a doctor and specialization</small>
+            </div>
+            <span class="arrow">&gt;</span>
+        </li>
+        <li>
+            <span class="icon"><img src="{{ url_for('static', path='images/Request Icon.png') }}" alt="Consult"></span>
+            <div class="text">
+                <p>Request Consultation</p>
+                <small>Talk to a specialist</small>
+            </div>
+            <span class="arrow">&gt;</span>
+        </li>
+        <li>
+            <span class="icon"><img src="{{ url_for('static', path='images/Location Icon.png') }}" alt="Locate"></span>
+            <div class="text">
+                <p>Locate a hospital near you</p>
+                <small>Find closest hospitals</small>
+            </div>
+            <span class="arrow">&gt;</span>
+        </li>
+        <li>
+            <span class="icon"><img src="{{ url_for('static', path='images/') }}" alt=""></span>
+            <div class="text">
+                <p>Emergency</p>
+                <small>Request immediate help</small>
+            </div>
+            <span class="arrow">&gt;</span>
+        </li>
+    </ul>
+    </div>
+    <div class="consultations-container">
+        <header>
+            <h2>Recent Webinars</h2>
+            <button>See all</button>
+        </header>
+        <ul class="">
+            <li>
+                <div class="profile">
+                    <img src="{{ url_for('static', path='images/Avatar.png') }}" alt="Dr. Ndinelao Litumba">
+                    <div>
+                        <h3>Management of community acquired pneumonia</h3>
+                        <p> Dr. Caroline Marhefka,
+                         New England College of Optometry, USA</p>
+                    </div>
+                </div>
+                <button>See recording</button>
+            </li>
+            <!-- Repeat for other doctors -->
+            <li>
+                <div class="profile">
+                    <img src="{{ url_for('static', path='images/Avatar.png') }}" alt="Dr. Ndinelao Litumba">
+                    <div>
+                        <h3>Childhood Pneumonia Quality-of-Care</h3>
+                        <p>Dr. Alex Levin,
+                             University of Rochester, USA</p>
+                    </div>
+                </div>
+                <button>See recording</button>
+            </li>
+            <!-- Additional list items for Dr. Anish Patel, Dr. Samuel Smith, Dr. Lily Chen -->
+            <li>
+                <div class="profile">
+                    <img src="{{ url_for('static', path='images/Avatar.png') }}" alt="Dr. Ndinelao Litumba">
+                    <div>
+                        <h3>Interprofessional Series – Pneumonia</h3>
+                        <p>Dr. Simon Szeto,
+                            Chinese University of Hong Kong</p>
+                    </div>
+                </div>
+                <button>See a recording</button>
+            </li>
+            <!-- Additional list items for Dr. Anish Patel, Dr. Samuel Smith, Dr. Lily Chen -->
+            <li>
+                <div class="profile">
+                    <img src="{{ url_for('static', path='images/Avatar.png') }}" alt="Dr. Ndinelao Litumba">
+                    <div>
+                        <h3>2024 Pneumococcal Webinar</h3>
+                        <p>Dr. Amr Mohamed
+                            Noor Al Yemen Eye Center, Yemen</p>
+                    </div>
+                </div>
+                <button>See recording</button>
+            </li>
+            <!-- Additional list items for Dr. Anish Patel, Dr. Samuel Smith, Dr. Lily Chen -->
+            <li>
+                <div class="profile">
+                    <img src="{{ url_for('static', path='images/Avatar.png') }}" alt="Dr. Ndinelao Litumba">
+                    <div>
+                        <h3>Respiratory SCE course</h3>
+                        <p>Dr. Jennifer Johnson, Primary Care Physician</p>
+                    </div>
+                </div>
+                <button>See recording</button>
+            </li>
+            <!-- Additional list items for Dr. Anish Patel, Dr. Samuel Smith, Dr. Lily Chen -->
+        </ul>
+    </div>
+    
+</div>
+
+</div>
+</div>
+<script src="{{ url_for('static', path='script/script.js') }}"></script>
+</body>
+</html>

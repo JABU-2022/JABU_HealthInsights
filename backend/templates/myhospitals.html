@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/myhospital.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+</head>
+<body>
+    <div class="dashboard-container">
+
+        <!-- Left Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="{{ url_for('static', path='images/pneumon.png') }}" alt="Logo">
+            </div>
+    
+            <nav class="top-nav">
+                <ul>
+                    <li class="dashboard" id="dashboard">
+                        <a id="dashboard_label" href="{{ url_for('render_dashboard') }}">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="consultadoctor" id="consultadoctor">
+                        <a id="consultadoctor_label" href="{{ url_for('render_consultdoctor') }}">
+                            <i class="fas fa-user-md"></i> Consult
+                        </a>
+                    </li>
+                    <li class="appointments" id="appointments">
+                        <a id="appointments_label" href="{{ url_for('render_appointment') }}">
+                            <i class="fas fa-video"></i> Live Webinars
+                        </a>
+                    </li>
+                    <li class="myhospital" id="myhospitals">
+                        <a id="myhospitals_label" href="{{ url_for('render_myhospitals') }}">
+                            <i class="fas fa-book-open"></i> Online Courses
+                        </a>
+                    </li>
+                    <li class="myhospital" id="myhospitals">
+                        <a id="myhospitals_label" href="{{ url_for('render_upload_form') }}">
+                            <i class="fas fa-brain"></i> AI
+                        </a>
+                    </li>
+                </ul>
+              </nav>
+            <nav class="bottom-nav">
+                <ul>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Refer Family & Friends</a></li>
+                </ul>
+            </nav>
+        </div>
+    
+    
+    
+        <!-- Right Dashboard Information -->
+    <div class="main-content">
+
+        <div class="top-bar">
+            <div>
+                <input type="search" id="searchInput" placeholder="Search here..." aria-label="Search"> 
+            </div>
+
+            <div class="profile">
+                <img src="{{ url_for('static', path='images/profile2.jpg') }}" alt="Profile Picture">
+            </div>
+            <div>
+                <img src="{{ url_for('static', path='images/notification-icon.png') }}" alt="Notifications" class="notification-icon">
+            </div>    
+        </div>
+
+
+        <div class="header-container">
+            <div class="text-container">
+                <h2> Online Courses</h2>
+            </div>
+            <div class="button-container">
+                <a href="https://www.google.com/search?q=find+hospitals+near+me&oq=find+hospitals+near+me&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIICAEQABgWGB4yCAgCEAAYFhgeMggIAxAAGBYYHjIICAQQABgWGB4yCAgFEAAYFhgeMg0IBhAAGIYDGIAEGIoFMg0IBxAAGIYDGIAEGIoFMgoICBAAGIAEGKIEMgoICRAAGIAEGKIE0gEIMjI3M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8">
+                    <button>🔍 Find hospitals near me </button>
+                </a>
+                
+            </div>
+        </div>
+    
+        <div class="tabs">
+            <div class="tab active">
+                <span class="icon">+</span>
+                <span class="text">All Courses</span>
+                <span class="count">0</span>
+            </div>
+            <div class="tab">
+                <span class="icon">📅</span>
+                <span class="text">Recently Visited</span>
+                <span class="count">0</span>
+            </div>
+            <div class="tab">
+                <span class="icon">❌</span>
+                <span class="text">Favourities</span>
+                <span class="count">0</span>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+   
+</body>
+</html>

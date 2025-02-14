@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="/static/css/style.css" /> -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/upload_form.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>Chest X-Ray Diagnosis</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Left Sidebar Navigation -->
+      <div class="sidebar">
+        <div class="logo">
+          <img
+            src="{{ url_for('static', path='images/pneumon.png') }}"
+            alt="Logo"
+          />
+        </div>
+
+        <nav class="top-nav">
+          <ul>
+            <li class="dashboard" id="dashboard">
+                <a id="dashboard_label" href="{{ url_for('render_dashboard') }}">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </li>
+            <li class="consultadoctor" id="consultadoctor">
+                <a id="consultadoctor_label" href="{{ url_for('render_consultdoctor') }}">
+                    <i class="fas fa-user-md"></i> Consult
+                </a>
+            </li>
+            <li class="appointments" id="appointments">
+                <a id="appointments_label" href="{{ url_for('render_appointment') }}">
+                    <i class="fas fa-video"></i> Live Webinars
+                </a>
+            </li>
+            <li class="myhospital" id="myhospitals">
+                <a id="myhospitals_label" href="{{ url_for('render_myhospitals') }}">
+                    <i class="fas fa-book-open"></i> Online Courses
+                </a>
+            </li>
+            <li class="myhospital" id="myhospitals">
+                <a id="myhospitals_label" href="{{ url_for('render_upload_form') }}">
+                    <i class="fas fa-brain"></i> AI
+                </a>
+            </li>
+        </ul>
+        </nav>
+        <nav class="bottom-nav">
+          <ul>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Refer Family & Friends</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Right Dashboard Information -->
+      <div class="main-content">
+        <div class="top-bar">
+          <div>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Search here..."
+              aria-label="Search"
+            />
+          </div>
+
+          <div class="profile">
+            <img
+              src="{{ url_for('static', path='images/profile2.jpg') }}"
+              alt="Profile Picture"
+            />
+          </div>
+          <div>
+            <img
+              src="{{ url_for('static', path='images/notification-icon.png') }}"
+              alt="Notifications"
+              class="notification-icon"
+            />
+          </div>
+        </div>
+      <div class="upload-section">
+        <h1> Chest X-Ray Diagnosis</h1>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+          <input
+            type="file"
+            id="imageUpload"
+            name="file"
+            accept="image/*"
+            required
+          />
+          <a href="/diagnosis"></a>
+          <button type="submit">Upload X-ray Image</button>
+        </form>
+        <p id="uploadStatus"></p> <!-- Placeholder for uploading status -->
+      </div>
+    </div>
+    <script>
+      const form = document.getElementById("uploadForm");
+      const uploadBtn = document.getElementById("uploadBtn");
+      const statusText = document.getElementById("uploadStatus");
+
+      // Function to show uploading status
+      function showUploadingStatus() {
+        let dots = 0;
+        return setInterval(() => {
+          dots = (dots + 1) % 4;
+          statusText.textContent = 'Uploading' + '.'.repeat(dots);
+        }, 500);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const intervalId = showUploadingStatus();
+
+        setTimeout(function () {
+        clearInterval(intervalId); // Stop "Uploading..." animation
+        statusText.textContent = ''; // Clear the status message
+    }, 30000);
+      });
+    </script>
+  </body>
+</html>
