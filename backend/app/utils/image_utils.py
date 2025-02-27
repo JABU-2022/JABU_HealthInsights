@@ -15,6 +15,9 @@ def save_image(uploaded_file):
 def load_image(image_path):
     image = Image.open(image_path)
     # Resize to match the input size of the model
+    # Convert grayscale images to RGB
+    if image.mode != 'RGB':
+        image = image.convert('RGB')
     image = image.resize((224, 224))
     image = np.array(image) / 255.0   # Normalize image
     image = np.expand_dims(image, axis=0)  # Add batch dimension

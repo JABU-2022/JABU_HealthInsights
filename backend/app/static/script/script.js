@@ -1,3 +1,125 @@
+console.log("Script loaded!");
+
+// Online Courses Section
+
+document.addEventListener("DOMContentLoaded", function () {
+  const courses = [
+    {
+      title: "Understanding Pneumonia: Comprehensive Guide",
+      description:
+        "Learn about the causes, symptoms, and treatment of pneumonia in this comprehensive course designed for healthcare professionals.",
+      duration: "6 hours",
+      difficulty: "Intermediate",
+      rating: 4.8,
+      enrolled: 1234,
+      image:
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80",
+    },
+    {
+      title: "Pediatric Pneumonia Management",
+      description:
+        "Specialized course focused on diagnosing and treating pneumonia in children, with emphasis on latest treatment protocols.",
+      duration: "8 hours",
+      difficulty: "Advanced",
+      rating: 4.9,
+      enrolled: 856,
+      image:
+        "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80",
+    },
+    {
+      title: "Pneumonia Prevention Strategies",
+      description:
+        "Learn effective strategies to prevent pneumonia in various healthcare settings and community environments.",
+      duration: "4 hours",
+      difficulty: "Beginner",
+      rating: 4.7,
+      enrolled: 2156,
+      image:
+        "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80",
+    },
+    {
+      title: "Advanced Imaging in Pneumonia",
+      description:
+        "Master the interpretation of chest X-rays and CT scans in pneumonia diagnosis with this advanced course.",
+      duration: "10 hours",
+      difficulty: "Advanced",
+      rating: 4.9,
+      enrolled: 645,
+      image:
+        "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80",
+    },
+  ];
+
+  const courseContainer = document.getElementById("course-container");
+  console.log(courseContainer);
+
+  courses.forEach((course) => {
+    const courseCard = document.createElement("div");
+    courseCard.className = "course-card";
+
+    const imageDiv = document.createElement("div");
+    imageDiv.className = "relative h-48 overflow-hidden";
+    const img = document.createElement("img");
+    img.src = course.image;
+    img.alt = course.title;
+    img.className =
+      "w-full h-full object-cover transition-transform duration-300 hover:scale-105";
+    imageDiv.appendChild(img);
+
+    const badge = document.createElement("div");
+    badge.className = "badge absolute top-4 right-4";
+    badge.textContent = course.difficulty;
+    imageDiv.appendChild(badge);
+
+    const cardHeader = document.createElement("div");
+    cardHeader.className = "p-4";
+    const title = document.createElement("h3");
+    title.className = "text-xl font-semibold leading-tight text-gray-900";
+    title.textContent = course.title;
+    cardHeader.appendChild(title);
+
+    const cardContent = document.createElement("div");
+    cardContent.className = "p-4";
+    const description = document.createElement("p");
+    description.className = "text-sm text-gray-600 line-clamp-2 mb-4";
+    description.textContent = course.description;
+    cardContent.appendChild(description);
+
+    const details = document.createElement("div");
+    details.className = "flex items-center gap-4 text-sm text-gray-600";
+    const duration = document.createElement("div");
+    duration.className = "flex items-center gap-1";
+    duration.innerHTML = "⏱️ " + course.duration;
+    details.appendChild(duration);
+
+    const enrolled = document.createElement("div");
+    enrolled.className = "flex items-center gap-1";
+    enrolled.innerHTML = "📚 " + course.enrolled + " enrolled";
+    details.appendChild(enrolled);
+    cardContent.appendChild(details);
+
+    const cardFooter = document.createElement("div");
+    cardFooter.className = "footer";
+    const rating = document.createElement("div");
+    rating.className = "flex items-center gap-1";
+    rating.innerHTML = "⭐ " + course.rating.toFixed(1);
+    cardFooter.appendChild(rating);
+
+    const enrollButton = document.createElement("button");
+    enrollButton.className =
+      "px-4 py-2 bg-medical-600 text-white rounded-md hover:bg-medical-700 transition-colors";
+    enrollButton.textContent = "Enroll Now";
+    cardFooter.appendChild(enrollButton);
+
+    courseCard.appendChild(imageDiv);
+    courseCard.appendChild(cardHeader);
+    courseCard.appendChild(cardContent);
+    courseCard.appendChild(cardFooter);
+
+    courseContainer.appendChild(courseCard);
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const currentDate = new Date().toLocaleDateString("en-US", {
     weekday: "long",

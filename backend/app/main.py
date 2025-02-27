@@ -32,10 +32,9 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="../templates")
 
 # Load the DenseNet201 model
-# densenet_model = load_densenet_model()
+densenet_model = load_densenet_model()
 # Define the class names for disease classification
-class_names = ['Age-related Macular Degeneration', 'Cataract',
-               'Diabetic retinopathy', 'Glaucoma', 'Normal Fundus']
+class_names = ['Normal X-Ray', 'Pneumonia']
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -105,38 +104,38 @@ async def render_upload_form(request: Request):
     return templates.TemplateResponse("upload_form.html", {"request": request})
 
 
-# @app.post("/predict", response_class=HTMLResponse)
-# async def predict_image(request: Request, file: UploadFile = File(...)):
-#     # Save uploaded image
-#     image_path = save_image(file)
+@app.post("/predict", response_class=HTMLResponse)
+async def predict_image(request: Request, file: UploadFile = File(...)):
+    # Save uploaded image
+    image_path = save_image(file)
 
-#     # Load image for prediction and GradCAM++
-#     image = load_image(image_path)
+    # Load image for prediction and GradCAM++
+    image = load_image(image_path)
 
-#     # Predict the disease (assumes predict_disease returns the class index)
-#     class_index = predict_disease(densenet_model, image)
+    # Predict the disease (assumes predict_disease returns the class index)
+    class_index = predict_disease(densenet_model, image)
 
-#     # Get the disease name from the class index
-#     disease_prediction = class_names[class_index]
+    # Get the disease name from the class index
+    disease_prediction = class_names[class_index]
 
-#     # Generate GradCAM++ heatmap
-#     gradcam_image_path = generate_gradcam(
-#         densenet_model, image, class_index)
+    # Generate GradCAM++ heatmap
+    gradcam_image_path = generate_gradcam(
+        densenet_model, image)
 
-#     # Generate AI text explanation
-#     explanation = get_text_explanation(disease_prediction)
+    # Generate AI text explanation
+    explanation = get_text_explanation(disease_prediction)
 
-#     # Remove temp file if needed
-#     # os.remove(image_path)
+    # Remove temp file if needed
+    # os.remove(image_path)
 
-#     # Serve the results page
-#     return templates.TemplateResponse(
-#         "results.html",
-#         {
-#             "request": request,
-#             "prediction": disease_prediction,
-#             "original_image": f"/{image_path}",
-#             "gradcam_image": f"/{gradcam_image_path}",
-#             "explanation": explanation
-#         }
-#     )
+    # Serve the results page
+    return templates.TemplateResponse(
+        "results.html",
+        {
+            "request": request,
+            "prediction": disease_prediction,
+            "original_image": f"/{image_path}",
+            "gradcam_image": f"/{gradcam_image_path}",
+            "explanation": explanation
+        }
+    )

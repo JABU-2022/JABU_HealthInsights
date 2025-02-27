@@ -23,10 +23,10 @@ def get_text_explanation(predicted_class):
 
     # Construct the prompt for the virtual doctor
     prompt = f"""
-    You are a virtual doctor. The patient has been diagnosed with {predicted_class}.
+    You are a virtual doctor. The patient has been diagnosed with {predicted_class}. Which Pneumonia was not detected.
     
     1. Diagnose the condition in detail.
-    2. Provide a suggested treatment plan.
+    2. Provide a suggested treatment plan (if necessary).
     3. Offer lifestyle or preventive advice to help manage the condition.
     4. Finally, remind the patient to consult their personal doctor for confirmation and further management.
     """
@@ -35,7 +35,7 @@ def get_text_explanation(predicted_class):
         # Send a chat completion request using Groq's client
         chat_completion = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
-            model="llama-3.1-70b-versatile",  # Llama model
+            model="llama-3.1-8b-instant",  # Llama model
         )
 
         # Extract the response text from the chat completion
