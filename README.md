@@ -35,12 +35,12 @@ The Pneumon Telemedicine Dashboard is created to improve healthcare access, focu
 ## Installation
 
 ```bash
-git clone https://github.com/JABU-2022/Pneumon.git
+git clone https://github.com/JABU-2022/JABU_HealthInsights
 cd Pneumon
-source iCatch/bin/activate
+source Butera/bin/activate
 pip install -r requirements.txt
 cd Pneumon/backend/app
-uvicorn app:main --reload
+uvicorn main:app --reload
 ```
 
 ## Usage
@@ -80,6 +80,10 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ## Initial software product 
 
 [Initail software product](https://youtu.be/cSaqUDxAyyY)
+
+## Final software product 
+
+[Final software product](https://youtu.be/aAFYzW1SnmI)
 
 ---
 >>>>>>> 29ecdb4 (Initial commit)
